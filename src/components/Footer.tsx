@@ -23,7 +23,7 @@ export function Footer() {
         }}>
           {/* Logo */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <AbyssLogo size={28} />
+            <img src={logo} width={28} height={28} style={{ objectFit: 'contain' }} alt="Abyss" />
             <span style={{ fontSize: '16px', fontWeight: '700', color: '#e8e8e8', letterSpacing: '-0.3px' }}>
               Abyss
             </span>

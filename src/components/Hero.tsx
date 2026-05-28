@@ -1,5 +1,6 @@
 import { Download, Github } from 'lucide-react'
 import { usePlatformUrl } from '../context/ReleaseContext'
+import logo from '../assets/logo.png'
 
 const cardColors = [
   'linear-gradient(135deg, #1a3a5c 0%, #0077b6 100%)',
@@ -89,9 +90,7 @@ function AppMockup() {
         }}>
           {/* Logo in sidebar */}
           <div style={{ padding: '0 16px 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <div style={{ width: 26, height: 26, borderRadius: '50%', border: '2px solid #00b4ff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#00b4ff' }} />
-            </div>
+            <img src={logo} width={26} height={26} style={{ objectFit: 'contain' }} alt="Abyss" />
             <span style={{ fontSize: '13px', fontWeight: '700', color: '#e8e8e8' }}>Abyss</span>
           </div>
 
