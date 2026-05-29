@@ -1,68 +1,78 @@
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
 
 export function Nav() {
   return (
     <nav
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
+        top: 0, left: 0, right: 0,
         zIndex: 50,
-        background: 'rgba(8,8,8,0.85)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        background: 'rgba(17,23,32,0.8)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
+        borderBottom: '1px solid var(--divider)',
+        height: '60px',
       }}
     >
       <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 24px',
-        height: '64px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
+        maxWidth: '1200px', margin: '0 auto', padding: '0 24px',
+        height: '60px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <img src={logo} width={32} height={32} style={{ objectFit: 'contain' }} alt="Abyss" />
-          <span style={{
-            fontSize: '18px',
-            fontWeight: '700',
-            color: '#e8e8e8',
-            letterSpacing: '-0.3px',
-          }}>
+          <img src={logo} width={30} height={30} style={{ objectFit: 'contain' }} alt="Abyss" />
+          <span style={{ fontSize: '17px', fontWeight: '700', color: 'var(--text)', letterSpacing: '-0.3px' }}>
             Abyss
           </span>
         </div>
 
-        {/* CTA */}
+        {/* Center nav links */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px' }}>
+          {[
+            { label: 'Recursos', href: '#recursos' },
+            { label: 'Download', href: '#download' },
+          ].map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              style={{
+                fontSize: '14px', color: 'var(--muted)', fontWeight: '500',
+                textDecoration: 'none', transition: 'color 0.2s ease',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)' }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = 'var(--muted)' }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+
+        {/* Right CTA */}
         <a
-          href="#download"
+          href="http://app.abyss.grupoquote.com.br/"
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '9px 20px',
-            background: '#00b4ff',
-            color: '#080808',
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            padding: '8px 18px',
+            background: 'transparent',
+            border: '1px solid var(--divider)',
             borderRadius: '10px',
-            fontWeight: '600',
-            fontSize: '14px',
-            textDecoration: 'none',
-            transition: 'all 0.2s ease',
+            fontSize: '14px', fontWeight: '600', color: 'var(--text)',
+            textDecoration: 'none', transition: 'all 0.2s ease',
           }}
           onMouseEnter={e => {
-            (e.currentTarget as HTMLAnchorElement).style.background = '#22c4ff'
-            ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = '0 0 24px rgba(0,180,255,0.35)'
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.background = 'var(--panel-2)'
+            el.style.borderColor = 'rgba(255,255,255,0.14)'
           }}
           onMouseLeave={e => {
-            (e.currentTarget as HTMLAnchorElement).style.background = '#00b4ff'
-            ;(e.currentTarget as HTMLAnchorElement).style.boxShadow = 'none'
+            const el = e.currentTarget as HTMLAnchorElement
+            el.style.background = 'transparent'
+            el.style.borderColor = 'var(--divider)'
           }}
         >
-          Baixar agora
+          Acessar app →
         </a>
       </div>
     </nav>
